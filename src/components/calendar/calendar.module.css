@@ -1,0 +1,50 @@
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    background-color: rgba(200,200,200,0.5);
+    opacity: 0;
+    transition: opacity .3s linear;
+}
+.modal.modal__show {
+    display: block;
+    opacity: 1;
+    transition: opacity .3s linear;
+}
+.modal_dialog {
+    width: 600px;
+    height: 300px;
+    margin: 30px auto;
+    padding: 6px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
