@@ -1,6 +1,32 @@
+.navigation {
+    display: flex;
+    justify-content: center;
+}
+.calendar {
+    margin: 10px auto;
+}
+table {
+    border-collapse: collapse;
+}
+td, th {
+    border: 1px solid black;
+    padding: 3px;
+    text-align: center;
+}
+th {
+    font-weight: bold;
+    background-color: #E6E6E6;
+}
+.cell {
+    cursor: pointer;
+}
+.cell:hover {
+    background-color: #ddd;
+}
+
 .btn {
     display: inline-block;
-    margin-bottom: 0;
+    margin: 8px;
     font-weight: 400;
     text-align: center;
     white-space: nowrap;
@@ -9,7 +35,8 @@
     touch-action: manipulation;
     cursor: pointer;
     background-image: none;
-    border: 1px solid transparent;
+    border: 1px solid black;
+    border-radius: 4px;
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.42857143;
@@ -32,12 +59,14 @@
     -webkit-overflow-scrolling: touch;
     background-color: rgba(200,200,200,0.5);
     opacity: 0;
-    transition: opacity .3s linear;
+    transition: opacity .5s linear;
 }
 .modal.modal__show {
     display: block;
-    opacity: 1;
-    transition: opacity .3s linear;
+}
+.modal.modal__opasity {
+        opacity: 1;
+    transition: opacity .5s linear;
 }
 .modal_dialog {
     width: 600px;
