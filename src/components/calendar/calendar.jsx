@@ -12,14 +12,17 @@ const currentDate = new Date();
 console.log(currentDate);
 
 // Текущий месяц на момент инициализации
-const initialDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-console.log(initialDay);
+const initialDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+console.log(initialDate);
 
-// Функция для создания масива чисел месяца
+// Функция для создания матрицы чисел месяца
 function getArrayOfDaysInMonth(month, year) {
   let date = new Date(year, month, 1);
   const days = [[]];
-  for (let i = 1; i < date.getDay(); i++) {
+  const initialDay = date.getDay() === 0 ? 7 : date.getDay()
+
+  for (let i = 1; i < initialDay; i++) {
+    // console.log('push empty elements');
     days[days.length-1].push([])
   }
   while (date.getMonth() === month) {
@@ -31,9 +34,7 @@ function getArrayOfDaysInMonth(month, year) {
 
   }
   for (let i = date.getDay()-1; i <= 6 && i !==0 ; i++) {
-    console.log(date.getDay());
-    //i===1 && break;
-    
+    // console.log(date.getDay());
     days[days.length-1].push([])
   }
   // console.log(days);
@@ -45,13 +46,12 @@ function getArrayOfDaysInMonth(month, year) {
 class Calendar extends Component {
   state = {
     currentDate: currentDate,
-    shownMonth: initialDay,
+    shownMonth: initialDate,
     isModalShow: false
   }
 
   componentDidUpdate = () => {
     console.log('componentDidUpdate');
-    
   }
 
   showModal = (e) => {
@@ -62,7 +62,7 @@ class Calendar extends Component {
   }
   
   getCurrentDate = () => {
-    this.setState({shownMonth: initialDay})
+    this.setState({shownMonth: initialDate})
   }
 
   getPrevMonth = () => {
@@ -81,11 +81,7 @@ class Calendar extends Component {
   renderCalendar = () => {
     const {shownMonth} = this.state;
     const days = getArrayOfDaysInMonth(shownMonth.getMonth(), shownMonth.getFullYear());
-    console.log(days);
-
-    let weekDay = shownMonth.getDay();
-    console.log(weekDay); 
-    
+    // console.log(days);
 
     return (
       <table className={styles.calendar} onClick={this.showModal}>
