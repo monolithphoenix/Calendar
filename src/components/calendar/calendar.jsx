@@ -59,7 +59,7 @@ class Calendar extends Component {
 
   // Действие по клику на таблицу
   showModal = (e) => {
-    if (e.target.className === styles.cell) { // проверяем элемент ли это с классом "cell"
+    if (e.target.className.includes(styles.cell)) { // проверяем есть ли в этом элементе классом "cell"
       const cellDate = e.target.dataset.date; // извлекаем значение data-date
       const hasNote = this.state.notes.find(el => el.date === cellDate); // проверяем имеется ли запись на эту дату
       this.setState({
