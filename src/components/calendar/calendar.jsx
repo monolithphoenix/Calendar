@@ -174,7 +174,7 @@ class Calendar extends Component {
         {this.renderCalendar()}
 
         {isModalShow && 
-          <div className={`${styles.modal}${isModalShow ? ' '+styles.modal__show+' '+styles.modal__opasity : ''}`}>
+          <div className={styles.modal}>
             <form className={styles.modal_dialog} onSubmit={this.saveNotes}>
               <textarea className={styles.text_area} 
                 placeholder="Здесь можно оставить заметку к этому дню"
