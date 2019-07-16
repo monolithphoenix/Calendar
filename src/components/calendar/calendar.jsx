@@ -110,7 +110,7 @@ class Calendar extends Component {
 
   // Метод для отрисовки каледаря
   renderCalendar = () => {
-    const {shownMonth} = this.state;
+    const {shownMonth, notes} = this.state;
     const days = getArrayOfDaysInMonth(shownMonth.getMonth(), shownMonth.getFullYear());
 
     return (
@@ -123,7 +123,7 @@ class Calendar extends Component {
           { 
             days.map((element, i) => <tr key={i}>{element.map((el, j) => Array.isArray(el)
               ? <td key={i.toString()+j}></td>
-              : <td className={styles.cell} data-date={`${el.getFullYear()},${el.getMonth()},${el.getDate()}`} key={el}>
+              : <td className={notes.find(obj => obj.date === `${el.getFullYear()},${el.getMonth()},${el.getDate()}`) ? `${styles.cell} ${styles.cell__hasNote}`: styles.cell} data-date={`${el.getFullYear()},${el.getMonth()},${el.getDate()}`} key={el}>
                   {el.getDate()}
                 </td>
               )}
