@@ -162,7 +162,6 @@ class Calendar extends Component {
 
   render() {
     const {currentDate, isModalShow, modalData} = this.state;
-    console.log('NEW RENDER', this.state);
     
     return (
       <>
@@ -181,7 +180,7 @@ class Calendar extends Component {
                 placeholder="Здесь можно оставить заметку к этому дню"
                 onChange={this.getInputValue}
                 value={modalData.note}
-                autofocus="true">
+                autoFocus={true}>
               </textarea>
               <button className={styles.btn} type="button" onClick={this.hideModal}>Отмена</button>
               <button className={styles.btn} type="submit">Сохранить</button>
